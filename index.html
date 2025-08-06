@@ -1,122 +1,156 @@
-<!DOCTYPE html><html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoomFinderPH</title>
+  <title>RoomFinderPH - Pagadian</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: linear-gradient(135deg, #000428, #004e92);
+      font-family: 'Ubuntu', sans-serif;
+      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
       overflow-x: hidden;
     }header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 3rem;
-}
-
-header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-main {
-  padding: 2rem;
-}
-
-.intro,
-.upload-info,
-.featured {
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
-
-.upload-info ol {
-  padding-left: 1.2rem;
-}
-
-a {
-  color: #00d4ff;
-  text-decoration: underline;
-}
-
-.featured .listings {
-  display: grid;
-  gap: 1rem;
-}
-
-.listing {
-  background: rgba(255, 255, 255, 0.15);
+  background-color: #8E3200;
+  color: white;
   padding: 1rem;
-  border-radius: 1rem;
+  text-align: center;
+  position: relative;
 }
 
-.floating-house {
-  position: fixed;
-  bottom: 30px;
+.moving-sun {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+  border-radius: 50%;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2.5rem;
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-15px); }
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -15px); }
+}
+
+.content {
+  padding: 2rem;
+}
+
+.form-section {
+  background-color: #FFF5E1;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #D2691E;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.gallery img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 footer {
+  background-color: #8E3200;
+  color: white;
   text-align: center;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.fb-link, .gcash-info {
+  margin-top: 1rem;
+}
+
+.fb-link a {
+  color: #0047AB;
+  text-decoration: underline;
 }
 
   </style>
-</head>
-<body>
+</head><body>
   <header>
     <h1>RoomFinderPH</h1>
-    <p>Helping Landlords and Renters Connect — Hassle-Free</p>
-  </header>  <main>
-    <section class="intro">
-      <p><strong>Notice:</strong> Landlords are responsible for uploading their rental listings. RoomFinderPH only acts as a middleman.</p>
-      <p>💬 For inquiries or proof of payment, message us at <a href="https://www.facebook.com/zyrix.ares" target="_blank">Mundi Mc Prince</a>.</p>
-    </section><section class="upload-info">
-  <h2>Want to List a Property?</h2>
-  <ol>
-    <li>Pay the listing fee via GCash: <strong>0975 149 2164</strong></li>
-    <li>Send your proof of payment and listing details via our FB Page</li>
-    <li>We’ll review and publish your post manually</li>
-  </ol>
+    <p>Helping Pagadianos find and list rooms with ease</p>
+    <div class="moving-sun"></div>
+  </header>  <main class="content">
+    <section class="form-section">
+      <h2>List Your Room</h2>
+      <form>
+        <label for="name">Landlord Name:</label>
+        <input type="text" id="name" required /><label for="barangay">Barangay in Pagadian:</label>
+    <select id="barangay" required>
+      <option value="">Select Barangay</option>
+      <option value="Balangasan">Balangasan</option>
+      <option value="San Pedro">San Pedro</option>
+      <option value="Tiguma">Tiguma</option>
+      <option value="Dao">Dao</option>
+      <option value="Santiago">Santiago</option>
+      <option value="Mangasangay">Mangasangay</option>
+      <option value="Muricay">Muricay</option>
+      <!-- Add all 54 barangays -->
+    </select>
+
+    <label for="purok">Purok Name:</label>
+    <input type="text" id="purok" required />
+
+    <label for="number">Contact Number:</label>
+    <input type="tel" id="number" required />
+
+    <label for="images">Upload Room Photos:</label>
+    <input type="file" id="images" multiple accept="image/*" />
+
+    <button type="submit">Submit Listing</button>
+  </form>
 </section>
 
-<section class="featured">
-  <h2>Featured Listings</h2>
-  <div class="listings">
-    <div class="listing">
-      <h3>Studio Room in Sta. Lucia</h3>
-      <p>₱3,500/month · Own CR · Near highway</p>
-    </div>
-    <div class="listing">
-      <h3>Boarding House in Dao</h3>
-      <p>₱2,000/month · Shared CR · Good for students</p>
-    </div>
-  </div>
+<section class="gallery">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Traditional_Filipino_House.jpg" alt="Sample Room">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Bahay_na_Bato-Vigan.jpg" alt="Sample Room">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Nipa_hut_in_Bohol.jpg" alt="Sample Room">
 </section>
 
-<div class="floating-house">🏠</div>
+<div class="fb-link">
+  📍 Facebook Page: <a href="https://www.facebook.com/share/19n7qeCjXE/" target="_blank">RoomFinderPH</a>
+</div>
+
+<div class="gcash-info">
+  💸 GCash Payments: <strong>09751492164</strong>
+</div>
 
   </main>  <footer>
-    <p>&copy; 2025 RoomFinderPH. Built with ❤️ in Pagadian. All rights reserved.</p>
+    <p>&copy; 2025 RoomFinderPH – Built with love for Pagadian City 🇵🇭</p>
   </footer>
-</body>
-</html>
+</body></html>
